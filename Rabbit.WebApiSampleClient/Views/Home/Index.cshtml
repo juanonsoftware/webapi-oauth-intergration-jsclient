@@ -17,6 +17,10 @@
         <li>Client: receives a new access token from WebAPI (different than the one from EP)</li>
         <li>Client: passes access token on each request</li>
     </ol>
+
+    <p>
+        For more information, go to its github repository <a href="https://github.com/netvietdev/aspnetmvc5-minimal">here</a>
+    </p>
 </div>
 <div>
     <label class="label label-info">Server time @DateTime.Now.ToString(CultureInfo.InvariantCulture)</label>
@@ -27,13 +31,17 @@
 <div>
     <div class="col-md-5">
         <h3>Select an External Provider</h3>
-
+        <div>
+            <a href="javascript:;" onclick="WebAPIClient.authExternalProvider('Google');">Login with Google</a>
+        </div>
         <div>
             <a href="javascript:;" onclick="WebAPIClient.authExternalProvider('GitHub');">Login with GitHub</a>
         </div>
-
         <div>
-            <a href="javascript:;" onclick="WebAPIClient.authExternalProvider('Google');">Login with Google</a>
+            <a href="javascript:;" onclick="WebAPIClient.authExternalProvider('Yahoo');">Login with Yahoo</a>
+        </div>
+        <div>
+            <a href="javascript:;" onclick="WebAPIClient.authExternalProvider('Microsoft');">Login with Microsoft</a>
         </div>
     </div>
     <div class="col-md-5">
@@ -52,13 +60,3 @@
 <script>
     WebAPIClient.displayAuthInfo();
 </script>
-
-<br />
-<div>
-    <small>
-        <a href="https://github.com/netvietdev/aspnetmvc5-minimal">
-            <span class="glyphicon glyphicon-home"></span>
-            Github
-        </a>
-    </small>
-</div>

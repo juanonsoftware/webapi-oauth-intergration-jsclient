@@ -1,7 +1,6 @@
 ﻿var settings = {
     //apiServiceBaseUri: 'http://development.com:40678/',
-    //apiServiceBaseUri: 'http://localhost:26264/',
-    apiServiceBaseUri: 'http://localhost:40678/',
+    apiServiceBaseUri: 'http://webapioauth.apphb.com/',
 };
 
 var WebAPIClient = function () {
