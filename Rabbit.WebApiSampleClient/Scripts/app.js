@@ -20,21 +20,27 @@ WebAPIClient.displayAuthInfo = function () {
     }
 };
 
-WebAPIClient.getValueWithAccessToken = function () {
+WebAPIClient.getValueWithAccessToken = function (includeToken) {
     var fragment = JSON.parse(sessionStorage.getItem('auth'));
 
-    if (!fragment) {
+    if (!fragment && includeToken) {
         $("#result").text('INFO: Auth is null, please authenticate first.');
         return;
     }
 
     $.ajax(settings.apiServiceBaseUri + 'api/Values', {
         beforeSend: function (xhr) {
-            xhr.setRequestHeader('Authorization', 'Bearer ' + fragment.access_token);
+            if (includeToken) {
+                xhr.setRequestHeader('Authorization', 'Bearer ' + fragment.access_token);
+            }
         }
     }).done(function (data) {
         $("#result").text('Success with IsAuthenticated = ' + data.IsAuthenticated + ', Data=' + data.Data);
     }).fail(function (error) {
-        $("#result").text('Fail: ' + error);
+        if (error.responseText !== undefined) {
+            $("#result").text('Fail: ' + error.responseText);
+        } else {
+            $("#result").text('Fail: ' + error);
+        }
     });
 };
