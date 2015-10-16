@@ -1,0 +1,64 @@
+﻿@using System.Globalization
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+
+<div class="well">
+    <h2 class="label label-info">Welcome - The WebAPI Oauth JavaScript Client</h2>
+
+    <h3>Steps</h3>
+
+    <ol>
+        <li>User: clicks on a link to authenticate via External Provider</li>
+        <li>WebAPI: handles external access token from the EP, authenticate the request</li>
+        <li>Client: receives a new access token from WebAPI (different than the one from EP)</li>
+        <li>Client: passes access token on each request</li>
+    </ol>
+</div>
+<div>
+    <label class="label label-info">Server time @DateTime.Now.ToString(CultureInfo.InvariantCulture)</label>
+</div>
+
+<br />
+
+<div>
+    <div class="col-md-5">
+        <h3>Select an External Provider</h3>
+
+        <div>
+            <a href="javascript:;" onclick="WebAPIClient.authExternalProvider('GitHub');">Login with GitHub</a>
+        </div>
+
+        <div>
+            <a href="javascript:;" onclick="WebAPIClient.authExternalProvider('Google');">Login with Google</a>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <h3>API Result</h3>
+        <div id="result"></div>
+        <button onclick="WebAPIClient.getValueWithAccessToken()">Call API with access token</button>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div>
+    <h3>Auth information</h3>
+    <div id="auth"></div>
+</div>
+
+<script>
+    WebAPIClient.displayAuthInfo();
+</script>
+
+<br />
+<div>
+    <small>
+        <a href="https://github.com/netvietdev/aspnetmvc5-minimal">
+            <span class="glyphicon glyphicon-home"></span>
+            Github
+        </a>
+    </small>
+</div>
