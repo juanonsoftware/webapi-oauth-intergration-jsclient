@@ -1,8 +1,5 @@
-﻿
-window.common = (function () {
-    var common = {};
-
-    common.getFragment = function getFragment() {
+﻿window.common = (function () {
+    function getFragment() {
         if (window.location.hash.indexOf("#") === 0) {
             return parseQueryString(window.location.hash.substr(1));
         } else {
@@ -41,7 +38,9 @@ window.common = (function () {
         return data;
     }
 
-    return common;
+    return {
+        getFragment: getFragment
+    };
 })();
 
 var fragment = common.getFragment();
